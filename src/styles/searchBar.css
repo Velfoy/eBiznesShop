@@ -1,0 +1,74 @@
+.search-container {
+  display: flex;
+  align-items: center;
+  border: 2px solid rgba(104, 108, 119, 1);
+  background-color: rgba(255, 255, 255, 1);
+  border-radius: 4px;
+  overflow: hidden;
+  min-width: 400px;
+  width: 65%;
+  height: 48px;
+}
+
+.dropdown {
+  position: relative;
+  padding: 10px;
+  cursor: pointer;
+  border-right: 1px solid #ccc;
+}
+
+.dropdown-toggle {
+  user-select: none;
+  position: relative;
+  z-index: 5;
+  font-family: 'Quicksand';
+  font-size: 14px;
+  padding-left: 10px;
+  padding-right: 5px;
+}
+
+.dropdown-menu {
+  position: absolute;
+  background: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  top: 40px;
+  left: 0;
+  width: 150px;
+  border-radius: 5px;
+  display: block; /* Make sure it's not `none` */
+  z-index: 10; /* Ensures it appears above other elements */
+  font-family: 'Quicksand';
+  font-size: 12px;
+}
+
+.dropdown-menu li {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.dropdown-menu li:hover {
+  background: #f0f0f0;
+}
+
+.search-input {
+  flex-grow: 1;
+  border: none;
+  padding: 10px;
+  outline: none;
+}
+
+.search-icon {
+  padding: 10px;
+  padding-right: 20px;
+  cursor: pointer;
+}
+.search_main{
+  width: 100%;
+  position: relative;
+}
+.search-input::placeholder,.search-input{
+  font-family: 'Quicksand';
+}

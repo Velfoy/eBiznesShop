@@ -1,0 +1,37 @@
+#root{
+    width: 100%;
+}
+.headerClass{
+    font-family: 'Lato';
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+}
+
+.hight_header{
+    border-bottom: 1px solid #ECECEC;
+    padding-right: 20px;
+    padding-left: 20px;
+    display: flex;
+    flex-direction: row;
+    height: 30px;
+    width: 100%;
+    margin-bottom: 0px;
+    justify-content: space-between;
+}
+.image_logo{
+    height: 79px;
+
+}
+.links_header{
+    display: flex;
+    justify-content:flex-start;
+    align-items: center;
+}
+.need_help,.money{
+    font-size: 13px;
+    margin:10px  0px;
+}
+.money{
+    margin-right: 15px;
+}
