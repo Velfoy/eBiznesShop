@@ -1,0 +1,10 @@
+.footer_main{
+    display: flex;
+    flex-direction: row;
+  
+}
+.footer_all{
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+}
