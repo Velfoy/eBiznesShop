@@ -1,0 +1,17 @@
+.footer_heading {
+    font-size: 24px;
+    font-weight: bold;
+    
+    margin-bottom: 15px;
+    color: #222;
+    font-family: 'Quicksand';
+}
+.payments_logos img{
+    max-height: 30px;
+    margin-right: 5px;
+}
+.footer_text_right{
+    font-family: 'Quicksand';
+    font-size: 15px;
+    font-weight: 500;
+}

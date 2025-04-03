@@ -5,7 +5,7 @@
   }
   .right_links>*{
     font-family: 'Lato';
-    font-weight: 300;
+    font-weight: 400;
   }
   .cart-container,.login-container {
     display: flex;
@@ -15,7 +15,7 @@
     transition: color 0.3s ease-in-out;
   }
   .cart-container:hover,.login-container:hover{
-    color: #a74e00;
+    color: #ff5500;
   }
   .cart-container {
     position: relative;
@@ -27,8 +27,8 @@
   
   .cart-badge {
     position: absolute;
-    top: -6px;
-    right: 28px;
+    top: -5px;
+    right: 32px;
     background: white;
     border: 1px solid black;
     color: black;
@@ -38,7 +38,7 @@
     width: 14px;
     height: 13px;
     display: flex;
-    padding-top: 1px;
+    padding-top: 0px;
     align-items: center;
     justify-content: center;
     transition: transform 0.3s ease-in-out;

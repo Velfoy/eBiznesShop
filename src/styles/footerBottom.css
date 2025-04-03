@@ -1,0 +1,102 @@
+.footer_bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 20px;
+    margin-top: 20px;
+    border-top: 1px solid #e0e0e0;
+    font-family: 'Quicksand';
+    font-size: 16px;
+    color: #333;
+    width: 100%;
+}
+.discount_text{
+    font-size: 14px;
+    margin: 0px;
+}
+.row_socials{
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: center;
+}
+.left_bottom_footer{
+    width: 41%;
+}
+.center_bottom_footer{
+    width: 39%;
+}
+.right_bottom_footer{
+    width: 20%;
+}
+.left_bottom_footer p {
+    margin:  0;
+    margin-left: -10px;
+    color: #777;
+    font-size: 14px;
+}
+
+.center_bottom_footer {
+    display: flex;
+    gap: 30px;
+}
+
+.contact {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.icon {
+    font-size: 26px;
+    color: #333;
+}
+.contact .icon{
+    margin-right: 10px;
+}
+
+.phone_number {
+    font-weight: bold;
+    margin: 0;
+    font-size: 26px;
+}
+
+.sub_text {
+    font-size: 12px;
+    color: #777;
+    margin: 0;
+}
+
+.right_bottom_footer {
+    text-align: left;
+}
+
+.follow_us {
+    font-weight: bold;
+    margin-right: 20px;
+}
+
+.social_icons {
+    display: flex;
+    gap: 10px;
+    margin: 5px 0;
+}
+
+.social_icons .icon {
+    background: black;
+    color: white;
+    border-radius: 50%;
+    padding: 5px;
+    font-size: 14px;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+}
+
+.social_icons .icon:hover {
+    background: #ff5500;
+}
