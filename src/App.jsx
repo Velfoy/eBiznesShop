@@ -5,6 +5,7 @@ import ProductDetail from "./pages/ProductDetails";
 import Cart from "./pages/Cart";
 import HeaderNav from "./pages/HeaderNav";
 import Footer from "./pages/Footer";
+import LoginRegister from "./pages/LoginRegister";
 function App() {
   return (
     <div className="centering">
@@ -16,6 +17,7 @@ function App() {
           <Route path="/products" element={<Products />} />
           <Route path="/product/:id" element={<ProductDetail />} />
           <Route path="/cart" element={<Cart />} />
+          <Route path="/loginregister" element={<LoginRegister />} />
         </Routes>
       </div>
       <Footer></Footer>
