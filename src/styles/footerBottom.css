@@ -19,6 +19,7 @@
     flex-direction: row;
     justify-content: left;
     align-items: center;
+    margin-bottom: -5px;
 }
 .left_bottom_footer{
     width: 41%;
@@ -58,7 +59,7 @@
 .phone_number {
     font-weight: bold;
     margin: 0;
-    font-size: 26px;
+    font-size: 22px;
 }
 
 .sub_text {
@@ -69,17 +70,20 @@
 
 .right_bottom_footer {
     text-align: left;
+    margin-top: 10px;
 }
 
 .follow_us {
     font-weight: bold;
     margin-right: 20px;
+    margin-top: -5px;
 }
 
 .social_icons {
     display: flex;
     gap: 10px;
     margin: 5px 0;
+    margin-top: -15px;
 }
 
 .social_icons .icon {
