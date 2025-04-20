@@ -1,106 +1,154 @@
-/* Scoped reset inside the component only */
-.login-register-container * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
+.login-register-container {
+  font-family: 'Quicksand', sans-serif;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 40px;
+  padding: 40px;
+  background-color: #fff;
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+  width: 90vw;
+  max-width: 1200px;
+  margin-bottom: 40px;
+}
+
+.login-register .form-section {
+  flex: 1;
+  padding: 30px;
+  border: 1.5px solid #ccc;
+  border-radius: 20px;
+  background-color: #fff;
+}
+
+.login-register .form-section h2 {
+  font-size: 28px;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.login-register .form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.login-register .form label {
+  font-weight: bold;
+  margin-bottom: 5px;
+  font-size: 16px;
+}
+
+.login-register .input-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+.input-wrapper label{
+  font-size: 16px;
+  color: #353535;
+  font-weight: 600;
+}
+.login-register .input-field {
+  width: 97.5%;
+  padding: 8px 0px 8px 10px;
+  border-radius: 10px;
+  border: 2px solid #DEDEDE;
+  font-size: 12px;
+  font-weight: 300;
+  outline: none;
+}
+.login-register .input-field::placeholder{
+  color: #353535;
+}
+
+.login-register .toggle-visibility {
+  position: absolute;
+  right: 20px;
+  top: 33px;
+  cursor: pointer;
+  user-select: none;
+  font-size: 14px;
+}
+
+.login-register .btn {
+  border-radius: 12px;
+  padding: 10px 12px 10px 12px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  gap: 10px;
+  border: 1px solid #000;
+  width: 100%;
+}
+.primary-btn span{
+  margin: 0 auto;
+  transform: translateX(-15px);
+}
+.facebook-btn span,.google-btn span{
+  margin: 0 auto;
+  transform: translateX(-5px);
+}
+.google-btn span{
+  margin: 0 auto;
+  transform: translateX(-8px);
+}
+.login-register .primary-btn {
+  background-color: #000;
+  color: #fff;
+  border: none;
+  margin-top: 5px;
+}
+.primary-btn i{
+  font-size: 12px;
+  color: white;
+  margin-left: 5px;
+}
+.loginBtnP{
+  margin: 0px;
+}
+
+.login-register .social-login {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 15px;
+}
+
+.login-register .google-btn,
+.login-register .facebook-btn {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  background-color: #fff;
+  color: #000;
+  padding: 10px 12px 10px 12px;
+}
+
+.login-register .google-btn img,
+.login-register .facebook-btn img{
+  width: 20px;
+  height: 20px;
+}
+.login-register .google-btn i,
+.login-register .facebook-btn i{
+  color: black;
+  font-size: 14px;
+  margin-left: 5px;
+}
+.login-register .google-btn:hover,
+.login-register .facebook-btn:hover {
+  background-color: #f5f5f5;
+}
+
+@media (max-width: 768px) {
   .login-register-container {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    max-width: 1000px;
-    margin: 50px auto;
-    padding: 40px;
-    background-color: #fff;
-    border-radius: 16px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-    gap: 40px;
-  }
-  
-  /* Prefixing everything with .login-register to keep styles isolated */
-  .login-register .form-section {
-    flex: 1 1 420px;
-    background-color: #fff;
-    padding: 30px 25px;
-    border-radius: 12px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
-  }
-  
-  .login-register .form-section h2 {
-    text-align: center;
-    margin-bottom: 25px;
-    font-size: 26px;
-    color: #111;
-  }
-  
-  .login-register .input-field {
-    width: 100%;
-    padding: 12px 45px 12px 15px;
-    font-size: 15px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    outline: none;
-    margin-bottom: 20px;
-    transition: border-color 0.2s;
-  }
-  
-  .login-register .input-field:focus {
-    border-color: #888;
-  }
-  
-  .login-register .icon {
-    margin-right: 8px;
-  }
-  
-  .login-register .btn {
-    width: 100%;
-    padding: 12px;
-    border: none;
-    border-radius: 8px;
-    font-size: 15px;
-    cursor: pointer;
-    transition: background 0.3s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-  }
-  
-  .login-register .primary-btn {
-    background-color: #000;
-    color: #fff;
-    font-weight: 600;
-  }
-  
-  .login-register .social-login {
-    margin-top: 25px;
-    display: flex;
     flex-direction: column;
-    gap: 12px;
   }
-  
-  .login-register .google-btn,
-  .login-register .facebook-btn {
-    background-color: #fff;
-    border: 1px solid #ccc;
-    color: #000;
-    font-weight: 500;
-  }
-  
-  .login-register .google-btn:hover,
-  .login-register .facebook-btn:hover {
-    background-color: #f1f1f1;
-  }
-  
-  @media (max-width: 768px) {
-    .login-register-container {
-      flex-direction: column;
-      padding: 20px;
-    }
-  
-    .login-register .form-section {
-      width: 100%;
-    }
-  }
-  
+}

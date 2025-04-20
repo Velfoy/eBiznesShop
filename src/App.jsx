@@ -11,7 +11,7 @@ function App() {
     <div className="centering">
       <HeaderNav></HeaderNav>
 
-      <div className="p-4">
+      <div className="p-4 contentMain">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/products" element={<Products />} />
