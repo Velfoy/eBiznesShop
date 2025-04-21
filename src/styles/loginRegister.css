@@ -4,12 +4,12 @@
   flex-direction: row;
   justify-content: center;
   gap: 40px;
-  padding: 40px;
+  padding: 30px 45px 60px 45px;
   background-color: #fff;
   border-radius: 20px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 16px 30px rgba(0, 0, 0, 0.05);
   width: 90vw;
-  max-width: 1200px;
+  max-width: 1300px;
   margin-bottom: 40px;
 }
 
@@ -145,6 +145,48 @@
 .login-register .google-btn:hover,
 .login-register .facebook-btn:hover {
   background-color: #f5f5f5;
+}
+.divInsideButton{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+}
+.button-image{
+height: 400px;
+}
+.toggle-button {
+  padding: 30px;
+  border: 1.5px solid #ccc;
+  border-radius: 20px;
+  background-color: #fff;
+  cursor: pointer;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1); 
+  transition: 
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    background-color 0.3s ease;
+}
+
+.toggle-button:hover {
+  transform: scale(1.05) translateY(-2px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15); 
+  background-color: #f9f9f9; 
+}
+.text_register{
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  transition: color 0.3s ease-in-out,transform 0.3s ease-in-out;
+  margin: 0px;
+  margin-top: -20px;
+}
+.toggle-button:hover .text_register{
+  font-weight: 700;
+  transform: scale(1.05);
+  color: #db4901bb;
+
 }
 
 @media (max-width: 768px) {
