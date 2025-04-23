@@ -1,0 +1,117 @@
+.best_container {
+    padding: 24px;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .best_headerr{
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    width: 100%;
+  }
+  
+  .best_title {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0;
+    margin-bottom: 16px;
+    margin-right: auto;
+  }
+  
+  .best_tabs {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 24px;
+    font-size: 14px;
+    font-weight: 500;
+  }
+  
+  .best_tab_button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px 12px;
+    font: inherit;
+  }
+  
+  .best_grid {
+    display: grid;
+    gap: 16px;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    width: 100%;
+  }
+  
+  .best_card {
+    border-radius: 16px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    padding: 8px;
+    position: relative;
+    background-color: white;
+  }
+  
+  .best_badge {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    background-color: black;
+    color: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+  }
+  
+  .best_image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+  
+  .best_card_content {
+    margin-top: 16px;
+  }
+  
+  .best_card_title {
+    font-weight: 600;
+    font-size: 14px;
+    margin-bottom: 8px;
+  }
+  
+  .best_price_row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .best_price {
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  .best_original_price {
+    font-size: 12px;
+    text-decoration: line-through;
+    color: gray;
+  }
+  
+  .best_rating {
+    font-size: 12px;
+    color: #facc15;
+    margin-top: 4px;
+  }
+  
+  .best_add_button {
+    margin-top: 16px;
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    background: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
