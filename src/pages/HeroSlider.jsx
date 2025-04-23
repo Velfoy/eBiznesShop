@@ -16,16 +16,16 @@ const slides = [
     buttonText: "Join Now"
   },
   {
-    title: "Exclusive Deals",
-    subtitle: "Limited time offers, don't miss out",
-    image: "/images/slide2.jpg",
+    title: "Fast Fashion Big discount",
+    subtitle: "Save up to 50% off on your first order",
+    image: baner1,
     placeholder: "Get offers in your inbox",
     buttonText: "Get Offers"
   },
   {
     title: "Stay Ahead of Fashion",
     subtitle: "Be the first to know about new drops",
-    image: "/images/slide3.jpg",
+    image: baner1,
     placeholder: "Subscribe to updates",
     buttonText: "Subscribe"
   }

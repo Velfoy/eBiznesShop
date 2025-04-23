@@ -9,6 +9,7 @@
     flex-direction: row;
     justify-content: left;
     align-items: center;
+    color: #00233E;
 }
 .info_container *{
     font-size: 15px;
@@ -21,6 +22,7 @@
     font-weight:500;
     margin-left: 10px;
     margin: 10px;
+    color: #00233E;
 }
 .info_container{
     margin-left: 10px;
@@ -37,6 +39,7 @@
     margin-top: 15px;
 }
 .address_text,.call_text,.email_text,.hours_text,.address_text_2{
+
     margin: 0px;
     margin-top: 15px;
 }
