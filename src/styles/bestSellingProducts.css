@@ -5,6 +5,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    font-family: 'Quicksand';
   }
   .best_headerr{
     display: flex;
@@ -40,67 +41,109 @@
   .best_grid {
     display: grid;
     gap: 16px;
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     width: 100%;
   }
   
   .best_card {
-    border-radius: 16px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    padding: 8px;
+    border-radius: 15px;
+    border: 3px #DEDEDE solid;
+    padding: 25px;
     position: relative;
     background-color: white;
+    min-height: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
   
   .best_badge {
     position: absolute;
-    top: 8px;
-    left: 8px;
+    top: 25px;
+    left: -2px;
     background-color: black;
     color: white;
     padding: 4px 8px;
-    border-radius: 4px;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
     font-size: 12px;
   }
-  
+  .cart_add{
+    position: absolute;
+    top: 25px;
+    right: 25px;
+    background-color: transparent;
+    color: black;
+    border: none;
+    font-size: 18px;
+  }
   .best_image {
-    width: 100%;
+    width: 70%;
     height: auto;
     object-fit: cover;
     border-radius: 8px;
-  }
-  
-  .best_card_content {
-    margin-top: 16px;
+    
   }
   
   .best_card_title {
     font-weight: 600;
-    font-size: 14px;
-    margin-bottom: 8px;
+    font-size: 17px;
+    margin-bottom: 0px;
   }
-  
+  .best_owner{
+    font-size:13px;
+    color:#B6B6B6;
+    margin: 2px 0px;
+    margin-bottom: 5px;
+  }
+  .best_owner span{
+    color: #000;
+  }
   .best_price_row {
     display: flex;
     align-items: center;
     gap: 8px;
   }
-  
+  .best_card_name_div{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+  .best_card_link{
+    margin-top: 10px;
+    margin-left: 8px;
+  }
+  .best_card_link img{
+    height: 15px;
+    padding: 10px;
+    background-color: #000;
+    border-radius: 50%;
+  }
   .best_price {
     font-size: 18px;
     font-weight: bold;
   }
   
   .best_original_price {
-    font-size: 12px;
+    font-size: 14px;
     text-decoration: line-through;
     color: gray;
   }
-  
+  .best_rating_d{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  .best_rating_num{
+    font-size: 13px;
+    color: #B6B6B6;
+    margin-left: 5px;
+  }
   .best_rating {
-    font-size: 12px;
-    color: #facc15;
-    margin-top: 4px;
+    font-size: 18px;
+    color: black;
+
   }
   
   .best_add_button {
