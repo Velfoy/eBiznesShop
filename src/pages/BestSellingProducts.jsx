@@ -2,28 +2,36 @@ import React from "react";
 import "../styles/BestSellingProducts.css";
 import imageb from "../assets/shoes.png";
 import arrowright from "../assets/arrow.png";
+import { Link } from "react-router-dom";
+
 
 const getProducts = () => {
-  return Array(8).fill({
+  return Array(8).fill(null).map((_, index) => ({
+    id: index + 1, // or a real product ID
     title: "Angie’s Boomchickapop Sweet & Salty Kettle Corn",
     price: 2499.0,
     originalPrice: 4999.0,
     image: imageb,
     rating: 5,
-    link:"./products/is",
-    owner:"StarKist",
-  });
+    owner: "StarKist",
+  }));
 };
+
 
 const ProductCard = ({ product }) => (
   <div className="best_card">
     <span className="best_badge">New</span>
-    <button className="cart_add"><i class="fa-solid fa-cart-shopping"></i></button>
+    <Link to="/cart" className="cart_add">
+      <i className="fa-solid fa-cart-shopping"></i>
+    </Link>
     <img src={product.image} alt={product.title} className="best_image" />
     <div className="best_card_content">
       <div className="best_card_name_div">
         <h3 className="best_card_title">{product.title}</h3>
-        <a href={product.link} className="best_card_link"><img alt="button_for_info" src={arrowright}/></a>
+        <Link to={`/product/${product.id}`} className="best_card_link">
+          <img alt="button_for_info" src={arrowright} />
+        </Link>
+
       </div>
       <div className="best_rating_d">
         <div className="best_rating">{"★".repeat(product.rating)}</div>

@@ -1,0 +1,84 @@
+.featured_container {
+    margin: 0px auto;
+    width: 91%;
+    padding: 0 15px;
+    font-family: 'Quicksand';
+  }
+  
+  .featured_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+ 
+  }
+  
+  .featured_header h2 {
+    font-size: 1.5rem;
+  }
+  
+  .featured_tabs button {
+    background: none;
+    border: none;
+    font-size: 14px;
+    font-family: 'Quicksand';
+    padding: 8px 12px;
+    cursor: pointer;
+    color: #000;
+    font-weight: 500;
+  }
+  
+  .featured_tabs .active {
+    color: orange;
+    font-weight: bold;
+  }
+  
+  .featured_scroll {
+    display: flex;
+    gap: 23px;
+    overflow-x: auto;
+    padding-bottom: 15px;
+    padding-top: 10px;
+    scrollbar-width: thin;
+    padding-left:5px;
+  }
+  
+  .featured_card {
+    border: 1px solid #F4F6FA;
+    min-width: 90px;
+    background: #fff;
+    border-radius: 15px;
+    padding: 22px 12px;
+    text-align: center;
+    flex-shrink: 0;
+    box-shadow:
+      0 4px 8px rgba(0, 0, 0, 0.15),
+      0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  .featured_card:hover {
+    transform: translateY(-4px);
+    box-shadow:
+      0 8px 16px rgba(0, 0, 0, 0.2),
+      0 4px 8px rgba(0, 0, 0, 0.15);
+  }
+  
+  
+  .featured_card img {
+    width: 40px;
+    height: auto;
+    margin-bottom: 10px;
+  }
+  
+  .featured_card h4 {
+    font-size: 1rem;
+    margin: 0;
+  }
+  
+  .featured_card p {
+    margin: 0px;
+    margin-top: 8px;
+    font-size: 0.85rem;
+    color: #777;
+  }
+  

@@ -1,0 +1,131 @@
+.recommended_container {
+    padding: 20px 30px;
+    width: 90%;
+    font-family: 'Quicksand';
+    margin-bottom: 20px;
+  }
+  
+  .recommended_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+  }
+  
+  .all_deals {
+    font-size: 0.9rem;
+    color: #666;
+    text-decoration: none;
+  }
+  .recommended_grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 columns */
+    gap: 20px;
+    padding-bottom: 10px;
+  }
+  
+  .product_card {
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08);
+    transition: transform 0.2s ease;
+    position: relative;
+  }
+  
+  
+  .product_card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .image_section {
+    position: relative;
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+    overflow: hidden;
+  }
+  
+  .image_section img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 15px;
+  }
+  
+  .badge {
+    position: absolute;
+    top: 20px;
+    left: 0px;
+    background: black;
+    color: white;
+    font-size: 0.7rem;
+    padding: 4px 8px;
+    border-radius: 6px;
+    border-bottom-left-radius: 0px;
+    border-top-left-radius: 0px;
+    z-index: 1;
+  }
+  
+  .cart_btn {
+    position: absolute;
+    top: 20px;
+    right: 15px;
+    background: white;
+    border: none;
+    border-radius: 5px;
+    padding:  5px;
+    cursor: pointer;
+    font-size: 1rem;
+  }
+  
+  .product_info {
+    border-radius: 16px;
+    width: 80%;
+    background: white;
+    position: absolute;
+    bottom: -35px;
+    padding: 14px 16px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15); 
+    border: 1px solid #f0f0f0; 
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  .product_card:hover .product_info {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.2); 
+  }
+  
+  
+  .product_info h3 {
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin: 6px 0;
+  }
+  
+  .brand {
+    margin-top: 0px;
+    font-size: 0.75rem;
+    color: #777;
+    margin-bottom: 4px;
+  }
+  
+  .rating {
+    font-size: 0.8rem;
+    color: #000;
+    margin-bottom: 4px;
+  }
+  
+  .price {
+    font-weight: bold;
+    font-size: 1rem;
+  }
+  
+  .old_price {
+    text-decoration: line-through;
+    color: #888;
+    font-size: 0.85rem;
+    margin-left: 5px;
+  }
+  .best_naming{
+    display: flex;
+    flex-direction: row;
+  }
