@@ -68,11 +68,11 @@
   }
   .best_card:hover .best_card_link {
     transform: scale(1.12);
-    box-shadow: 0 5px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 5px 8px rgba(0, 0, 0, 0.1);
   }
   .best_card:hover .best_card_link img {
     transform: rotate(180deg) scale(1.08);
-    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
   }
   
   
@@ -154,7 +154,7 @@
   }
   .best_card_link:hover {
     transform: scale(1.1);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   }
   
   .best_card_link:hover img {
