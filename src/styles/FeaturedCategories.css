@@ -13,10 +13,12 @@
   }
   
   .featured_header h2 {
+    user-select: none;
     font-size: 1.5rem;
   }
   
   .featured_tabs button {
+    user-select: none;
     background: none;
     border: none;
     font-size: 14px;
@@ -33,6 +35,7 @@
   }
   
   .featured_scroll {
+    user-select: none;
     display: flex;
     gap: 23px;
     overflow-x: auto;
@@ -43,6 +46,7 @@
   }
   
   .featured_card {
+    user-select: none;
     border: 1px solid #F4F6FA;
     min-width: 90px;
     background: #fff;
