@@ -566,19 +566,6 @@
     margin-top: 10px;
   }
   
-  .amount_minus, .amount_plus {
-    background-color: #ddd;
-    padding: 4px 10px;
-    cursor: pointer;
-    border-radius: 4px;
-    font-weight: bold;
-  }
-  
-  .amount_number {
-    min-width: 20px;
-    text-align: center;
-  }
-  
   /* Shipping Methods */
   .shipping_methods .accepting-text {
     font-size: 1.2em;
