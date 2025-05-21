@@ -109,7 +109,7 @@ END $$;
 
 
 
-------------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------
 
 -- Create table Sellers
 DO $$
@@ -260,5 +260,184 @@ BEGIN
 		RAISE NOTICE 'Table Product_Categories created successfully';
     ELSE
         RAISE NOTICE 'Table Product_Categories already exists';
+    END IF;
+END $$;
+
+
+-- Create Orders table
+DO $$
+BEGIN
+	IF NOT EXISTS (SELECT 1 FROM pg_tables WHERE tablename = 'Orders' AND schemaname = 'public') THEN
+		CREATE TABLE Orders (
+    		OrderID SERIAL PRIMARY KEY,
+    		UserID INTEGER NOT NULL REFERENCES Users(UserID)
+				ON DELETE CASCADE  
+        		ON UPDATE CASCADE,
+    		OrderDate TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    		TotalAmount MONEY NOT NULL,
+    		Status VARCHAR(20) NOT NULL CHECK (Status IN ('pending', 'paid', 'shipped', 'delivered', 'cancelled')),
+    		RowGuid UUID DEFAULT gen_random_uuid() UNIQUE NOT NULL,
+    		ModifiedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+		);
+		RAISE NOTICE 'Table Orders created successfully';
+    ELSE
+        RAISE NOTICE 'Table Orders already exists';
+    END IF;
+END $$;
+
+-- Create Carts table
+DO $$
+BEGIN
+	IF NOT EXISTS (SELECT 1 FROM pg_tables WHERE tablename = 'Carts' AND schemaname = 'public') THEN
+		CREATE TABLE Carts (
+    		CartID SERIAL PRIMARY KEY,
+    		UserID INTEGER NOT NULL REFERENCES Users(UserID)
+				ON DELETE CASCADE  
+        		ON UPDATE CASCADE,
+    		CreatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    		RowGuid UUID DEFAULT gen_random_uuid() UNIQUE NOT NULL,
+    		ModifiedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+		);
+		RAISE NOTICE 'Table Carts created successfully';
+    ELSE
+        RAISE NOTICE 'Table Carts already exists';
+    END IF;
+END $$;
+
+-- Create Vouchers table
+DO $$
+BEGIN
+	IF NOT EXISTS (SELECT 1 FROM pg_tables WHERE tablename = 'Vouchers' AND schemaname = 'public') THEN
+		CREATE TABLE Vouchers (
+    		VoucherID SERIAL PRIMARY KEY,
+    		Code VARCHAR(50) UNIQUE NOT NULL,
+    		ExpiryDate TIMESTAMP NOT NULL,
+    		DiscountPercentage INTEGER NOT NULL CHECK (DiscountPercentage BETWEEN 1 AND 100),
+    		DiscountLimit MONEY,
+    		RowGuid UUID DEFAULT gen_random_uuid() UNIQUE NOT NULL,
+    		ModifiedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+		);
+		RAISE NOTICE 'Table Vouchers created successfully';
+    ELSE
+        RAISE NOTICE 'Table Vouchers already exists';
+    END IF;
+END $$;
+
+-- Create User_Vouchers table
+DO $$
+BEGIN
+	IF NOT EXISTS (SELECT 1 FROM pg_tables WHERE tablename = 'User_Vouchers' AND schemaname = 'public') THEN
+		CREATE TABLE User_Vouchers (
+    		UserVoucherID SERIAL PRIMARY KEY,
+    		UserID INTEGER NOT NULL REFERENCES Users(UserID)
+				ON DELETE CASCADE  
+        		ON UPDATE CASCADE,
+    		VoucherID INTEGER NOT NULL REFERENCES Vouchers(VoucherID)
+				ON DELETE CASCADE  
+        		ON UPDATE CASCADE,
+    		RowGuid UUID DEFAULT gen_random_uuid() UNIQUE NOT NULL,
+    		ModifiedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    		CONSTRAINT unique_user_voucher UNIQUE (UserID, VoucherID)
+		);
+		RAISE NOTICE 'Table User_Vouchers created successfully';
+    ELSE
+        RAISE NOTICE 'Table User_Vouchers already exists';
+    END IF;
+END $$;
+
+-- Create Order_Items table
+DO $$
+BEGIN
+	IF NOT EXISTS (SELECT 1 FROM pg_tables WHERE tablename = 'Order_Items' AND schemaname = 'public') THEN
+		CREATE TABLE Order_Items (
+    		OrderItemID SERIAL PRIMARY KEY,
+				ON DELETE CASCADE  
+        		ON UPDATE CASCADE,
+    		ProductID INTEGER NOT NULL REFERENCES Products(ProductID)
+				ON DELETE CASCADE  
+        		ON UPDATE CASCADE,
+    		Quantity INTEGER NOT NULL CHECK (Quantity > 0),
+    		Price MONEY NOT NULL,
+    		RowGuid UUID DEFAULT gen_random_uuid() UNIQUE NOT NULL,
+    		ModifiedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+		);
+		RAISE NOTICE 'Table Order_Items created successfully';
+    ELSE
+        RAISE NOTICE 'Table Order_Items already exists';
+    END IF;
+END $$;
+
+-- Create Cart_Items table
+DO $$
+BEGIN
+	IF NOT EXISTS (SELECT 1 FROM pg_tables WHERE tablename = 'Cart_Items' AND schemaname = 'public') THEN
+		CREATE TABLE Cart_Items (
+    		CartItemID SERIAL PRIMARY KEY,
+    		CartID INTEGER NOT NULL REFERENCES Carts(CartID)
+				ON DELETE CASCADE  
+        		ON UPDATE CASCADE,
+    		ProductID INTEGER NOT NULL REFERENCES Products(ProductID)
+				ON DELETE CASCADE  
+        		ON UPDATE CASCADE,
+    		Quantity INTEGER NOT NULL CHECK (Quantity > 0),
+    		AddedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    		RowGuid UUID DEFAULT gen_random_uuid() UNIQUE NOT NULL,
+    		ModifiedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+		);
+		RAISE NOTICE 'Table Cart_Items created successfully';
+    ELSE
+        RAISE NOTICE 'Table Cart_Items already exists';
+    END IF;
+END $$;
+
+-- Create PaymentMethods table
+DO $$
+BEGIN
+	IF NOT EXISTS (SELECT 1 FROM pg_tables WHERE tablename = 'PaymentMethods' AND schemaname = 'public') THEN
+		CREATE TABLE PaymentMethods (
+    		PaymentMethodID SERIAL PRIMARY KEY,
+    		UserID INTEGER NOT NULL REFERENCES Users(UserID)
+				ON DELETE CASCADE  
+        		ON UPDATE CASCADE,
+    		MethodType VARCHAR(50) NOT NULL CHECK (MethodType IN ('Credit Card', 'PayPal', 'Bank Transfer', 'Apple Pay', 'Google Pay', 'BLIK')),
+    		CardNumber VARCHAR(20),  -- Store masked or encrypted
+    		ExpiryDate DATE,
+    		RowGuid UUID DEFAULT gen_random_uuid() UNIQUE NOT NULL,
+    		ModifiedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    		IsDefault BOOLEAN DEFAULT FALSE,
+    		BillingAddress VARCHAR(255),
+    		LastFourDigits VARCHAR(4)  -- For display purposes
+		);
+		RAISE NOTICE 'Table PaymentMethods created successfully';
+    ELSE
+        RAISE NOTICE 'Table PaymentMethods already exists';
+    END IF;
+END $$;
+
+-- Create Transactions table
+DO $$
+BEGIN
+	IF NOT EXISTS (SELECT 1 FROM pg_tables WHERE tablename = 'Transactions' AND schemaname = 'public') THEN
+		CREATE TABLE Transactions (
+    		TransactionID SERIAL PRIMARY KEY,
+    		OrderID INTEGER NOT NULL REFERENCES Orders(OrderID)
+				ON DELETE CASCADE  
+        		ON UPDATE CASCADE,
+    		PaymentMethodID INTEGER NOT NULL REFERENCES PaymentMethods(PaymentMethodID)
+				ON DELETE CASCADE  
+        		ON UPDATE CASCADE,
+    		Amount MONEY NOT NULL CHECK (Amount > 0::MONEY),
+    		Status VARCHAR(20) NOT NULL CHECK (Status IN ('Pending', 'Success', 'Failed', 'Refunded', 'Partially Refunded')),
+    		TransactionDate TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    		RowGuid UUID DEFAULT gen_random_uuid() UNIQUE NOT NULL,
+    		ModifiedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    		TransactionReference VARCHAR(100),  -- Gateway reference ID
+    		Currency CHAR(3) DEFAULT 'USD',
+    		FeeAmount MONEY,  -- Processing fee
+    		ErrorMessage TEXT  -- For failed transactions
+		);
+		RAISE NOTICE 'Table Transactions created successfully';
+    ELSE
+        RAISE NOTICE 'Table Transactions already exists';
     END IF;
 END $$;
