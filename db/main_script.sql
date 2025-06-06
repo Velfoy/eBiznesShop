@@ -78,7 +78,7 @@ BEGIN
 			Salt BYTEA NOT NULL CHECK (LENGTH(Salt) = 32), 				-- random salt
 			Provider VARCHAR(20),        									-- 'email', 'google', 'facebook'
 			Provider_id VARCHAR(255),    									-- unique ID for user from provider
-			Email_verified BOOLEAN UNIQUE DEFAULT false;
+			Email_verified BOOLEAN UNIQUE DEFAULT false,
             Email VARCHAR(255),
             Country INTEGER NOT NULL REFERENCES Countries(CountryID)
         		ON DELETE CASCADE  
@@ -149,7 +149,7 @@ BEGIN
     		InStock INTEGER NOT NULL DEFAULT 0 CHECK (InStock >= 0),
     		Price MONEY NOT NULL CHECK (Price >= 0::MONEY),
     		MainPhoto VARCHAR(512),  -- path to image
-    		SKU VARCHAR(50) UNIQUE  -- Stock Keeping Unit
+    		SKU VARCHAR(50) UNIQUE,  -- Stock Keeping Unit
 			DeletionFlag BOOLEAN DEFAULT false,
             RowGuid UUID DEFAULT gen_random_uuid() UNIQUE NOT NULL,
 			CreatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
@@ -175,7 +175,7 @@ BEGIN
     		Rating FLOAT NOT NULL CHECK (Rating >= 1 AND Rating <= 5),
     		Comment TEXT,
     		Photo VARCHAR(512),  -- URL or path to review image
-    		CONSTRAINT OneReviewPerUserPerProduct UNIQUE (ProductID, UserID)
+    		CONSTRAINT OneReviewPerUserPerProduct UNIQUE (ProductID, UserID),
 			DeletionFlag BOOLEAN DEFAULT false,
             RowGuid UUID DEFAULT gen_random_uuid() UNIQUE NOT NULL,
 			CreatedAt TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
@@ -251,7 +251,7 @@ BEGIN
     		CategoryID INTEGER NOT NULL REFERENCES Categories(CategoryID)
 				ON DELETE CASCADE  
         		ON UPDATE CASCADE,
-    		CONSTRAINT UniqueProductCategory UNIQUE (ProductID, CategoryID)
+    		CONSTRAINT UniqueProductCategory UNIQUE (ProductID, CategoryID),
     		DeletionFlag BOOLEAN DEFAULT false,
             RowGuid UUID DEFAULT gen_random_uuid() UNIQUE NOT NULL,
 			CreatedAt TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
@@ -351,8 +351,6 @@ BEGIN
 	IF NOT EXISTS (SELECT 1 FROM pg_tables WHERE tablename = 'Order_Items' AND schemaname = 'public') THEN
 		CREATE TABLE Order_Items (
     		OrderItemID SERIAL PRIMARY KEY,
-				ON DELETE CASCADE  
-        		ON UPDATE CASCADE,
     		ProductID INTEGER NOT NULL REFERENCES Products(ProductID)
 				ON DELETE CASCADE  
         		ON UPDATE CASCADE,
